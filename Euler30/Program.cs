@@ -39,11 +39,11 @@ namespace Euler30
                                     ulong SumABCDEF = SumABCDE + POW5[f];
                                     for (uint g = 0; g < 10; ++g)
                                     {
-                                        ulong powered = SumABCDEF + pow5(g);
+                                        ulong powered = SumABCDEF + POW5[g];
 
                                         if (currNum == powered)
                                         {
-                                            Console.Out.WriteLine($"currNum {currNum} = powered {a}+{b}+{c}+{d}+{e}+{f}+{g}");
+                                            Console.Out.WriteLine($"currNum {currNum,10} = powered {a}+{b}+{c}+{d}+{e}+{f}+{g}");
                                             sum += powered;
                                         }
 
@@ -56,7 +56,7 @@ namespace Euler30
                 }
             }
             sum -= 1;
-            Console.WriteLine($"sum-1 = {sum}");
+            Console.WriteLine($"sum-1 = {sum,10}");
         }
 
         private static ulong calcNum(uint a, uint b, uint c, uint d, uint e, uint f, uint g)

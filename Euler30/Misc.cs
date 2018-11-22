@@ -28,5 +28,9 @@ namespace Euler30
 
             return POW;
         }
+        public static int digits(ulong value)
+        {
+            return value.ToString().Length;
+        }
     }
 }

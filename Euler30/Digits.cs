@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Euler30
 {
-    class Digit
+    class NumberGen
     {
         public byte[] digits;
         public ulong num;
 
         private StringBuilder sb;
 
-        public Digit(int count)
+        public NumberGen(int count)
         {
             digits = new byte[count];
             num = 0;
@@ -53,33 +53,5 @@ namespace Euler30
             }
             return sb.ToString();
         }
-    }
-    class DigitGen : IEnumerator<Digit>
-    {
-        Digit IEnumerator<Digit>.Current => digit;
-
-        public object Current => digit;
-
-        private Digit digit;
-
-        public DigitGen(int numDigits)
-        {
-            digit = new Digit(numDigits);
-        }
-
-        public void Dispose()
-        {
-        }
-
-        public bool MoveNext()
-        {
-            return digit.increment();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

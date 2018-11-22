@@ -10,36 +10,41 @@ namespace Euler30
     {
         public static void Run(int power)
         {
-            for (ulong i = 1; i < 10; ++i)
+            int countDigits = 1;
+            for (; countDigits < 20; ++countDigits)
             {
-                ulong max = Misc.pow(9, power) * i;
-                Console.WriteLine($"power={power}, digits={i}, max={max}");
+                ulong maxNumber = Misc.pow(9, power) * (ulong)countDigits;
+                int maxDigits = Misc.digits(maxNumber);
+                Console.WriteLine($"power={power}, digits={countDigits}, maxNumber (9^{power}*{countDigits})={maxNumber}, digits of maxNumber={maxDigits}");
+                if (countDigits > maxDigits)
+                {
+                    --countDigits;
+                    break;
+                }
             }
 
             ulong[] powers = Misc.genPowCache(power);
-
-            int lenDig = 6;
-
-            IEnumerator<Digit> gen = new DigitGen(lenDig);
+            Console.WriteLine($"calculating up to {countDigits} digits");
+            NumberGen numGen = new NumberGen(countDigits);
 
             ulong allsum = 0;
-            while (gen.MoveNext())
+            while (numGen.increment())
             {
                 ulong sum = 0;
-                for (int i=0; i < lenDig; ++i)
+                for (int i=0; i < countDigits; ++i)
                 {
-                    sum += powers[gen.Current.digits[i]];
+                    sum += powers[numGen.digits[i]];
                 }
 
-                if (gen.Current.num == sum)
+                if (numGen.num == sum)
                 {
-                    Console.WriteLine($"{gen.Current}");
+                    Console.WriteLine($"{numGen}");
                     allsum += sum;
                 }
             }
             allsum -= 1;
 
-            Console.WriteLine($"digits {lenDig}, allsum-1 {allsum}");
+            Console.WriteLine($"digits {countDigits}, allsum-1 {allsum}");
         }
     }
 }

@@ -38,8 +38,12 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Misc.cs" />
+    <Compile Include="DigitGen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="v1.cs" />
+    <Compile Include="v2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

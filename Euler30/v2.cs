@@ -28,12 +28,14 @@ namespace Euler30
             NumberGen numGen = new NumberGen(countDigits);
 
             ulong allsum = 0;
+            ulong adds = 0;
             while (numGen.increment())
             {
                 ulong sum = 0;
                 for (int i=0; i < countDigits; ++i)
                 {
                     sum += powers[numGen.digits[i]];
+                    ++adds;
                 }
 
                 if (numGen.num == sum)
@@ -44,7 +46,7 @@ namespace Euler30
             }
             allsum -= 1;
 
-            Console.WriteLine($"digits {countDigits}, allsum-1 {allsum}");
+            Console.WriteLine($"digits {countDigits}, allsum-1 {allsum}, adds performed {adds:N0}");
         }
     }
 }

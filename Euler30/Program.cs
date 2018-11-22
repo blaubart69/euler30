@@ -7,6 +7,7 @@ namespace Euler30
         static void Main(string[] args)
         {
             v2.Run(int.Parse(args[0]));  
+            v1.Run();
         }
     }
 }

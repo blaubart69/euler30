@@ -23,7 +23,7 @@ namespace Euler30
                 }
             }
 
-            ulong[] powers = Misc.genPowCache(power);
+            ulong[] powers = Misc.genPowCachel(power);
             Console.WriteLine($"calculating up to {countDigits} digits");
             NumberGen numGen = new NumberGen(countDigits);
 

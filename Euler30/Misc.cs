@@ -18,10 +18,30 @@ namespace Euler30
 
             return pow;
         }
-        public static ulong[] genPowCache(int power)
+        public static uint pow(uint num, int power)
+        {
+            uint pow = num;
+            for (int i = 0; i < power - 1; ++i)
+            {
+                pow = pow * num;
+            }
+
+            return pow;
+        }
+        public static uint[] genPowCachei(int power)
+        {
+            uint[] POW = new uint[10];
+            for (uint i = 0; i < 10; ++i)
+            {
+                POW[i] = Misc.pow(i, power);
+            }
+
+            return POW;
+        }
+        public static ulong[] genPowCachel(int power)
         {
             ulong[] POW = new ulong[10];
-            for (ulong i = 0; i < 10; ++i)
+            for (uint i = 0; i < 10; ++i)
             {
                 POW[i] = Misc.pow(i, power);
             }
